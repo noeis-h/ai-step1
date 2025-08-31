@@ -4,4 +4,4 @@ ai-step1: Fundamentals; basic math/python/numpy/pandas/data processing/notions o
 [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](
   https://colab.research.google.com/github/noeis-h/ai-step1/blob/main/Week1/notebooks/W1D1_vectors.ipynb)
   
-https://github.com/noeis-h/ai-step1/blob/main/Week1/notebooks/W1D1_vectors.ipynb
+
