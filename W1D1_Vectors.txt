@@ -50,19 +50,19 @@ norm of unit vector: always 1
 b/c) 
 v̂ = v / ||v||
 ||v̂||   = sqrt( Σ (xi / ||v||)^2 )
-        = sqrt( Σ xi^2 ) / ||v||
+        = sqrt( Σ xi^2 ) / c
         = ||v|| / ||v|| = 1
 
 
 # ===== forming dot & angle =====
 dot_vw = float(np.dot(v, w))
-# dot: suggest that in respect of b = a->b projection,
-        to which direction(the length of shadow=||a||cosθ) + to what extent(multiply ||b|) 
+# dot: suggest that in respect of w = v->w projection,
+        to which direction(the length of shadow=||v||cosθ) + to what extent(multiply ||w||) 
         = work(in Physics)
-v·w = 3*1 + 4*(-2) = -5. 스칼라(실수) 값이므로 float 캐스팅.
+        => v·w = ||v||||w||cosθ-> sign is differ depend' on cosθ-> O guess the angle
 
 cos_theta = dot_vw / (np.linalg.norm(v) * np.linalg.norm(w))
-# 설명: 코사인 유사도 cosθ = (v·w) / (||v|| * ||w||).
+# see the 62
 
 cos_theta = np.clip(cos_theta, -1.0, 1.0)
 # 설명: 부동소수점 오차로 값이 -1~1 범위를 아주 조금 벗어나는 걸 방지하기 위해 클리핑.
