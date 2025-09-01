@@ -1,4 +1,4 @@
-# Vectors
+## Basic notions of Vectors
 1) Physics: Vector: arrow pointing spaces, direction+length, 2-3dimen., can set everywhere
 
 2) CS: 2 or more dimen. lists(rows and colums)
@@ -15,7 +15,78 @@
 
 - Scaling: stretching/squishing/reversing the direct.
   Scalars: 2, 1/3, -1.8.. etc.
-#
+
+## forming vectors
+
+import numpy as np
+# import numpy function. has an speciality in calcu. vect.and rows&colums.
+
+# ===== forming vectors =====
+v = np.array([3., 4.])
+# v = (3, 4)-> the reason of putt' dots: 
+dots-> not int, float-> float is safer for norm/angle calcu 
+                        + prevent err. occur' when int->float.
+
+w = np.array([1., -2.])
+# same with 26-28
+
+# ===== forming vector norm and unit vector =====
+v_norm = np.linalg.norm(v)
+# ||v||2 = sqrt(3^2 + 4^2) = 5.
+c.f.) Euclid norm: length of vectors
+        L1 norm (Manhattan norm): the distance as the sum of absolute values of coordinates, 
+                                like walking along grid lines.
+                                ∥v∥1​=∑∣xi​∣
+        L2 norm (Euclidean norm): the straight-line distance, 
+                                computed as the square root of the sum of squared coordinates.
+                                ∥v∥2​=∑xi2​
+        L∞ norm (Maximum norm): the largest absolute coordinate, 
+                                showing the farthest extent along any axis.
+                                ∥v∥∞​=max∣xi​∣
+
+v_unit = v / v_norm if v_norm != 0 else v
+# unit vector:v̂ = v / ||v||, *except.-> denominator=0
+norm of unit vector: always 1
+b/c) 
+v̂ = v / ||v||
+||v̂||   = sqrt( Σ (xi / ||v||)^2 )
+        = sqrt( Σ xi^2 ) / ||v||
+        = ||v|| / ||v|| = 1
+
+
+# ===== 내적(dot) & 각도 =====
+dot_vw = float(np.dot(v, w))
+# 설명: v·w = 3*1 + 4*(-2) = -5. 스칼라(실수) 값이므로 float 캐스팅.
+
+cos_theta = dot_vw / (np.linalg.norm(v) * np.linalg.norm(w))
+# 설명: 코사인 유사도 cosθ = (v·w) / (||v|| * ||w||).
+
+cos_theta = np.clip(cos_theta, -1.0, 1.0)
+# 설명: 부동소수점 오차로 값이 -1~1 범위를 아주 조금 벗어나는 걸 방지하기 위해 클리핑.
+
+theta_deg = np.degrees(np.arccos(cos_theta))
+# 설명: θ = arccos(cosθ) (라디안) → degrees()로 '도(degree)' 단위로 변환.
+
+# ===== 두 벡터 사이 거리 =====
+dist_vw = np.linalg.norm(v - w)
+# 설명: ||v - w|| = 유클리드 거리. 점 v와 w 사이의 직선 거리.
+
+# ===== 결과 출력 =====
+print(f"v = {v}, ||v|| = {v_norm:.3f}, v_unit = {v_unit}")
+# 설명: v, v의 길이, 단위벡터 출력.
+
+print(f"w = {w}")
+# 설명: w 출력.
+
+print(f"dot(v, w) = {dot_vw:.3f}")
+# 설명: 내적 결과 출력(부호로 직교/예각/둔각 판단 가능).
+
+print(f"angle(v, w) = {theta_deg:.3f} degrees")
+# 설명: 두 벡터 사이 각도(도 단위). 90도면 직교.
+
+print(f"dist(v, w) = {dist_vw:.3f}")
+# 설명: 두 점(벡터) 사이 유클리드 거리.
+
 
 
 
