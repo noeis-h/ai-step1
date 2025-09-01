@@ -59,7 +59,7 @@ dot_vw = float(np.dot(v, w))
 # dot: suggest that in respect of w = v->w projection,
         to which direction(the length of shadow=||v||cosθ) + to what extent(multiply ||w||) 
         = work(in Physics)
-        => v·w = ||v||||w||cosθ-> sign is differ depend' on cosθ-> O guess the angle
+        => v·w = ||v||||w||cosθ-> sign is differ depend' on cosθ-> O guess the range of angle
 
 cos_theta = dot_vw / (np.linalg.norm(v) * np.linalg.norm(w))
 # see the 62
@@ -73,27 +73,32 @@ Clipping: forc' a value -> a safe range by cutt' it off.
 
 theta_deg = np.degrees(np.arccos(cos_theta))
 # θ = arccos(cosθ) (radian) → degrees() (turn into degree)
-e.g) arccos(0.5)= 
+e.g) arccos(0.5)=1.04719(π/3​)-> degrees(arccos(0.5))=60∘
 
-# ===== 두 벡터 사이 거리 =====
+# ===== forming distance b/w two vec. =====
 dist_vw = np.linalg.norm(v - w)
-# 설명: ||v - w|| = 유클리드 거리. 점 v와 w 사이의 직선 거리.
+# Euclidean distance: straight line distance=||v - w||, point-to-point distance formula-> O apply to n-dimen.
 
-# ===== 결과 출력 =====
+# ===== result output =====
 print(f"v = {v}, ||v|| = {v_norm:.3f}, v_unit = {v_unit}")
-# 설명: v, v의 길이, 단위벡터 출력.
+#f: f-string (formatted string literal), if use {}-> real value
+e.g.) name = "Alice"
+        print(f"Hello {name}!") = the outcome is "Hello Alice!"
+.3f: output float up to 3 decimal places
+e.g.) num = 3.141592
+        print(f"num = {num:.3f}") = the outcome is "num = 3.141"
 
 print(f"w = {w}")
-# 설명: w 출력.
+# see the 84-89
 
 print(f"dot(v, w) = {dot_vw:.3f}")
-# 설명: 내적 결과 출력(부호로 직교/예각/둔각 판단 가능).
+# see the 84-89
 
 print(f"angle(v, w) = {theta_deg:.3f} degrees")
-# 설명: 두 벡터 사이 각도(도 단위). 90도면 직교.
+# angle(v,w): the angle b/w v and w
 
 print(f"dist(v, w) = {dist_vw:.3f}")
-# 설명: 두 점(벡터) 사이 유클리드 거리.
+# see the 84-89
 
 
 
