@@ -68,15 +68,12 @@ cos_theta = np.clip(cos_theta, -1.0, 1.0)
 # Floating-point error: com. store num. in binary approx.
                         -> results can be slightly off (e.g., 1.0000000002 instead of 1.0). 
                         -> This can push values like cosθ just outside the valid range [-1,1].
-                        -> err. occur
-
-
-
-
-부동소수점 오차로 값이 -1~1 범위를 아주 조금 벗어나는 걸 방지하기 위해 클리핑.
+                        -> err. occur when use arccos
+Clipping: forc' a value -> a safe range by cutt' it off. 
 
 theta_deg = np.degrees(np.arccos(cos_theta))
-# 설명: θ = arccos(cosθ) (라디안) → degrees()로 '도(degree)' 단위로 변환.
+# θ = arccos(cosθ) (radian) → degrees() (turn into degree)
+e.g) arccos(0.5)= 
 
 # ===== 두 벡터 사이 거리 =====
 dist_vw = np.linalg.norm(v - w)
