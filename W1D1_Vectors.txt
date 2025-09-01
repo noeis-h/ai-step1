@@ -45,7 +45,7 @@ c.f.) Euclid norm: length of vectors
                                 ∥v∥∞​=max∣xi​∣
 
 v_unit = v / v_norm if v_norm != 0 else v
-# unit vector:v̂ = v / ||v||, *except.-> denominator=0
+# unit vector: v̂ = v / ||v||, *except.-> denominator=0
 norm of unit vector: always 1
 b/c) 
 v̂ = v / ||v||
@@ -54,9 +54,12 @@ v̂ = v / ||v||
         = ||v|| / ||v|| = 1
 
 
-# ===== 내적(dot) & 각도 =====
+# ===== forming dot & angle =====
 dot_vw = float(np.dot(v, w))
-# 설명: v·w = 3*1 + 4*(-2) = -5. 스칼라(실수) 값이므로 float 캐스팅.
+# dot: suggest that in respect of b = a->b projection,
+        to which direction(the length of shadow=||a||cosθ) + to what extent(multiply ||b|) 
+        = work(in Physics)
+v·w = 3*1 + 4*(-2) = -5. 스칼라(실수) 값이므로 float 캐스팅.
 
 cos_theta = dot_vw / (np.linalg.norm(v) * np.linalg.norm(w))
 # 설명: 코사인 유사도 cosθ = (v·w) / (||v|| * ||w||).
