@@ -33,7 +33,7 @@ w = np.array([1., -2.])
 # ===== forming vector norm and unit vector =====
 v_norm = np.linalg.norm(v)
 # ||v||2 = sqrt(3^2 + 4^2) = 5.
-c.f.) Euclid norm: length of vectors
+c.f.) Euclid norm: length of vectors(scalar)
         L1 norm (Manhattan norm): the distance as the sum of absolute values of coordinates, 
                                 like walking along grid lines.
                                 ∥v∥1​=∑∣xi​∣
@@ -59,7 +59,10 @@ dot_vw = float(np.dot(v, w))
 # dot: suggest that in respect of w = v->w projection,
         to which direction(the length of shadow=||v||cosθ) + to what extent(multiply ||w||) 
         = work(in Physics)
-        => v·w = ||v||||w||cosθ-> sign is differ depend' on cosθ-> O guess the range of angle
+        => v·w = ||v||||w||cosθ-> sign is differ depend' on cosθ,
+                                 the sign of dot: 0-> vertical, (+)-> same direct., (-)-> reverse direct. 
+                                -> O guess the range of angle, catch the direction
+                                -> but it b/c of cos, not ||v||||w||(just multiply b/w scal.)           
                 = v1*w1 + v2*w2 + ...
                 = ∑vi​wi​
                 b/c) For any triangle with sides a,b,c: c^2=a^2+b^2−2abcosθ
@@ -67,8 +70,7 @@ dot_vw = float(np.dot(v, w))
                 ∣a−b∣^2=1∑n​(ai​−bi​)^2=∑ai^2​+∑bi^2​−2∑ai​bi -(2)
                 in apply (2) to (1),
                 −2∣a∣∣b∣cosθ=−2∑ai​bi
-                => ​∣a∣∣b∣cosθ=1∑n​ai​bi​
-                
+                => ​dot=∣a∣∣b∣cosθ=1∑n​ai​bi​
 
 cos_theta = dot_vw / (np.linalg.norm(v) * np.linalg.norm(w))
 # see the 62
@@ -83,6 +85,21 @@ Clipping: forc' a value -> a safe range by cutt' it off.
 theta_deg = np.degrees(np.arccos(cos_theta))
 # θ = arccos(cosθ) (radian) → degrees() (turn into degree)
 e.g) arccos(0.5)=1.04719(π/3​)-> degrees(arccos(0.5))=60∘
+
+# ===== forming cross=====
+cross_vw = np.cross(v, w)
+#Cross: the vec. that is verticle to the plane that is consisted of two vec. like z-axis
+
+- 수식(3차원):
+  a × b = | i    j    k  |
+          | a1  a2  a3 |
+          | b1  b2  b3 |
+- 크기: |a||b|sinθ
+- 방향: 오른손 법칙
+- 의미: 평행사변형 넓이
+- 예시:
+  (1, 0, 0) × (0, 1, 0) = (0, 0, 1)
+
 
 # ===== forming distance b/w two vec. =====
 dist_vw = np.linalg.norm(v - w)
@@ -109,27 +126,6 @@ print(f"angle(v, w) = {theta_deg:.3f} degrees")
 print(f"dist(v, w) = {dist_vw:.3f}")
 # see the 84-89
 
-
-- 특징:
-  · 직각이면 0
-  · 양수 → 같은 방향
-  · 음수 → 반대 방향
-- 예시:
-  (2, 3)·(4, -1) = 2*4 + 3*(-1) = 8 - 3 = 5
-
----
-
-2) 외적 (Cross Product)
-- 정의: 두 벡터가 만드는 평면에 수직인 벡터
-- 수식(3차원):
-  a × b = | i    j    k  |
-          | a1  a2  a3 |
-          | b1  b2  b3 |
-- 크기: |a||b|sinθ
-- 방향: 오른손 법칙
-- 의미: 평행사변형 넓이
-- 예시:
-  (1, 0, 0) × (0, 1, 0) = (0, 0, 1)
 
 ---
 
