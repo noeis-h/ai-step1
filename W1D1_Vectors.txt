@@ -99,17 +99,13 @@ form of formula: use rows&colums just to make ez to rememb.
           | b1  b2  b3 |
 in that form, i, j, k - unit vect. that are used for express each axis(direct.)
 a=(a1i, a2j, a3k), b=(b1, b2, b3)
-a×b=(a1​+a2+a3)×(b1​+b2​+b3​) (form of vect.=sum of values of each axis)
+a×b=(a1​i+a2j+a3k)×(b1i​+b2j​+b3k​) (form of vect.=sum of values of each axis)
         = a1​i×b1​i + a1​i×b2​j + a1​i×b3​k + a2​j×b1​i + a2​j×b2​j + a2​j×b3​k + a3​k×b1​i + a3​k×b2​j + a3​k×b3​k
         = 0 + a1​b2​(i×j) + a1​b3​(i×k) + a2​b1​(j×i) + 0 + a2​b3​(j×k) + a3​b1​(k×i) + a3​b2​(k×j) + 0
         = 0 + a1b2k + (-a1b3j)+ (-a2b1k) + 0 + a2b3i + a3b1j + (-a3b2i) + 0
-b/c) same direction= parall.-> no area forms
-
-
-- 예시:
-  (1, 0, 0) × (0, 1, 0) = (0, 0, 1)
-
-
+b/c) cross of same direction= parall.-> no area forms-> 0
+        e.g.) i×j = ∣i∣∣j∣sin90∘*k=1*1*1*k=k (the norm of unit vect. is always 1 + k direct.(b/c k is the only direct. vertical to both i&j + x->y is (+) sign))
+                
 # ===== forming distance b/w two vec. =====
 dist_vw = np.linalg.norm(v - w)
 # Euclidean distance: straight line distance=||v - w||, point-to-point distance formula-> O apply to n-dimen.
@@ -124,27 +120,20 @@ e.g.) num = 3.141592
         print(f"num = {num:.3f}") = the outcome is "num = 3.141"
 
 print(f"w = {w}")
-# see the 84-89
+# see the 115-120
 
 print(f"dot(v, w) = {dot_vw:.3f}")
-# see the 84-89
+# see the 115-120
 
 print(f"angle(v, w) = {theta_deg:.3f} degrees")
 # angle(v,w): the angle b/w v and w
 
 print(f"dist(v, w) = {dist_vw:.3f}")
-# see the 84-89
+# see the 115-120
 
+print(f"cross(v, w) = {cross_vw:.3f}")
+# see the 115-120
 
-- 일반 벡터: v = x*i + y*j + z*k
-
----
-
-5) 응용
-- 물리: Work = F·d (내적)
-- 공학: Torque = r×F (외적)
-- 그래픽스: Normal vector 계산 (외적)
-- 데이터 과학: Cosine similarity (내적)
 
 
 
