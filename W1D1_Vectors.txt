@@ -1,4 +1,4 @@
-## Basic notions of Vectors
+## Basic  of Vectorsnotions
 1) Physics: Vector: arrow pointing spaces, direction+length, 2-3dimen., can set everywhere
 
 2) CS: 2 or more dimen. lists(rows and colums)
@@ -45,7 +45,7 @@ c.f.) Euclid norm: length of vectors(scalar)
                                 ∥v∥∞​=max∣xi​∣
 
 v_unit = v / v_norm if v_norm != 0 else v
-# unit vector: v̂ = v / ||v||, *except.-> denominator=0
+# unit vector: v̂ = v / ||v|| (vector) *except.-> denominator=0
 norm of unit vector: always 1
 b/c) 
 v̂ = v / ||v||
@@ -88,15 +88,24 @@ e.g) arccos(0.5)=1.04719(π/3​)-> degrees(arccos(0.5))=60∘
 
 # ===== forming cross=====
 cross_vw = np.cross(v, w)
-#Cross: the vec. that is verticle to the plane that is consisted of two vec. like z-axis
-
-- 수식(3차원):
-  a × b = | i    j    k  |
+#Cross: the parallelogram-area that is consisted of two vec. and vertical to the two vec. (vector), called as normal vector(normal line=vertical line) 
+        1) magnitude = ∣𝑎∣∣𝑏∣sin𝜃 (the formula of parallelogram-area)
+        2) dirct. = determ. by right hand rule(bend 4fin. from one's direct. to another's and check the direct. your thumb points)
+        mutiply 1) & 2) => cross
+unit vector: 
+form of formula: use rows&colums just to make ez to rememb.
+  a × b = | i   j   k  |
           | a1  a2  a3 |
           | b1  b2  b3 |
-- 크기: |a||b|sinθ
-- 방향: 오른손 법칙
-- 의미: 평행사변형 넓이
+in that form, i, j, k - unit vect. that are used for express each axis(direct.)
+a=(a1i, a2j, a3k), b=(b1, b2, b3)
+a×b=(a1​+a2+a3)×(b1​+b2​+b3​) (form of vect.=sum of values of each axis)
+        = a1​i×b1​i + a1​i×b2​j + a1​i×b3​k + a2​j×b1​i + a2​j×b2​j + a2​j×b3​k + a3​k×b1​i + a3​k×b2​j + a3​k×b3​k
+        = 0 + a1​b2​(i×j) + a1​b3​(i×k) + a2​b1​(j×i) + 0 + a2​b3​(j×k) + a3​b1​(k×i) + a3​b2​(k×j) + 0
+        = 0 + a1b2k + (-a1b3j)+ (-a2b1k) + 0 + a2b3i + a3b1j + (-a3b2i) + 0
+b/c) same direction= parall.-> no area forms
+
+
 - 예시:
   (1, 0, 0) × (0, 1, 0) = (0, 0, 1)
 
@@ -127,21 +136,6 @@ print(f"dist(v, w) = {dist_vw:.3f}")
 # see the 84-89
 
 
----
-
-3) 기하적 의미
-- 내적 → 투영(projection), 두 벡터 사이 각도 계산
-- 외적 → 법선 벡터(normal vector), 면적 계산
-
----
-
-4) 좌표계와 단위벡터
-- 2D: (x, y)
-- 3D: (x, y, z)
-- 단위벡터:
-  i = (1, 0, 0)
-  j = (0, 1, 0)
-  k = (0, 0, 1)
 - 일반 벡터: v = x*i + y*j + z*k
 
 ---
