@@ -62,7 +62,14 @@ dot_vw = float(np.dot(v, w))
         => v·w = ||v||||w||cosθ-> sign is differ depend' on cosθ-> O guess the range of angle
                 = v1*w1 + v2*w2 + ...
                 = ∑vi​wi​
-                b/c)
+                b/c) For any triangle with sides a,b,c: c^2=a^2+b^2−2abcosθ
+                ∣a−b∣^2=∣a∣^2+∣b∣^2−2∣a∣∣b∣cosθ (apply that to vec.) -(1)
+                ∣a−b∣^2=1∑n​(ai​−bi​)^2=∑ai^2​+∑bi^2​−2∑ai​bi -(2)
+                in apply (2) to (1),
+                −2∣a∣∣b∣cosθ=−2∑ai​bi
+                => ​∣a∣∣b∣cosθ=1∑n​ai​bi​
+                
+
 cos_theta = dot_vw / (np.linalg.norm(v) * np.linalg.norm(w))
 # see the 62
 
@@ -101,7 +108,7 @@ print(f"angle(v, w) = {theta_deg:.3f} degrees")
 
 print(f"dist(v, w) = {dist_vw:.3f}")
 # see the 84-89
-## Day2: Vectors (심화)
+
 
 - 특징:
   · 직각이면 0
