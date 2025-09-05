@@ -39,7 +39,7 @@ c.f.) Euclid norm: length of vectors(scalar)
                                 ∥v∥1​=∑∣xi​∣
         L2 norm (Euclidean norm): the straight-line distance, 
                                 computed as the square root of the sum of squared coordinates.
-                                ∥v∥2​=∑xi2​
+                                ∥v∥2​=sqrt∑(xi^2)​
         L∞ norm (Maximum norm): the largest absolute coordinate, 
                                 showing the farthest extent along any axis.
                                 ∥v∥∞​=max∣xi​∣
@@ -49,8 +49,8 @@ v_unit = v / v_norm if v_norm != 0 else v
 norm of unit vector: always 1
 b/c) 
 v̂ = v / ||v||
-||v̂||   = sqrt( Σ (xi / ||v||)^2 )
-        = sqrt( Σ xi^2 ) / c
+||v̂||   = sqrt( Σ (vi / ||v||)^2 )
+        = sqrt( Σ vi^2 ) / ||v||
         = ||v|| / ||v|| = 1
 
 
@@ -98,7 +98,7 @@ form of formula: use rows&colums just to make ez to rememb.
           | a1  a2  a3 |
           | b1  b2  b3 |
 in that form, i, j, k - unit vect. that are used for express each axis(direct.)
-a=(a1i, a2j, a3k), b=(b1, b2, b3)
+a=(a1i, a2j, a3k), b=(b1i, b2j, b3k)
 a×b=(a1​i+a2j+a3k)×(b1i​+b2j​+b3k​) (form of vect.=sum of values of each axis)
         = a1​i×b1​i + a1​i×b2​j + a1​i×b3​k + a2​j×b1​i + a2​j×b2​j + a2​j×b3​k + a3​k×b1​i + a3​k×b2​j + a3​k×b3​k
         = 0 + a1​b2​(i×j) + a1​b3​(i×k) + a2​b1​(j×i) + 0 + a2​b3​(j×k) + a3​b1​(k×i) + a3​b2​(k×j) + 0
